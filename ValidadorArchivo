@@ -1,0 +1,25 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+/**
+ * Clase que valida el contenido de un archivo.
+ */
+public class ValidadorArchivo {
+
+    /**
+     * Verifica si un archivo contiene información.
+     * 
+     * @param nombreArchivo Nombre del archivo a verificar.
+     * @throws ArchivoVacioException si el archivo no contiene contenido.
+     */
+    public void verificarNoVacio(String nombreArchivo) throws ArchivoVacioException {
+        try (BufferedReader lector = new BufferedReader(new FileReader(nombreArchivo))) {
+            if (lector.readLine() == null) {
+                throw new ArchivoVacioException("El archivo '" + nombreArchivo + "' está vacío.");
+            }
+        } catch (IOException e) {
+            System.out.println(" Error al acceder al archivo: " + e.getMessage());
+        }
+    }
+}

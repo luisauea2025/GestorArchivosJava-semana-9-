@@ -1,4 +1,3 @@
-# GestorArchivosJava-semana-9-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -18,9 +17,9 @@ public class GestorDeArchivo {
     public void guardar(String nombreArchivo, String contenido) {
         try (FileWriter escritor = new FileWriter(nombreArchivo)) {
             escritor.write(contenido);
-            System.out.println("✅ Archivo guardado correctamente: " + nombreArchivo);
+            System.out.println(" Archivo guardado correctamente: " + nombreArchivo);
         } catch (IOException e) {
-            System.out.println("❌ Error al guardar el archivo: " + e.getMessage());
+            System.out.println("Error al guardar el archivo: " + e.getMessage());
         }
     }
 
@@ -38,7 +37,7 @@ public class GestorDeArchivo {
                 contenido.append(linea).append("\n");
             }
         } catch (IOException e) {
-            System.out.println("❌ Error al leer el archivo: " + e.getMessage());
+            System.out.println(" Error al leer el archivo: " + e.getMessage());
         }
         return contenido.toString();
     }
